@@ -2,36 +2,37 @@
 
 #define N 6
 
-int countOccurences(int arr[N], int y, int size);
+int countMatches(int array[N], int x, int n);
 
 int main(void) {
-    int digitCount[N] = {0};
+    int occurences[N] = {0};
     int x;
     int count = 0;
 
     while (count < N) {
-        scanf("%d", &x);
-        digitCount[count] = x;
+        scanf("%d", &occurences[count]);
         count++;
     }
 
     scanf("%d", &x);
+    count = 0;
+
+    int numMatches = countMatches(occurences, x, N);
+
+    printf("Found %d occurences of %d in the 6 numbers!\n", numMatches, x);
     
-    int numXFound = countOccurences(digitCount, x, N);
-
-    printf("%d occurred %d times in the %d numbers read.\n", x, numXFound, N);
-
     return 0;
 }
 
-int countOccurences(int arr[N], int y, int size) {
+int countMatches(int array[N], int x, int n) {
     int count = 0;
-    int numXFound = 0;
-    while (count < size) {
-        if (y == arr[count]) {
-            numXFound++;
+    int numMatches = 0;
+    while (count < n) {
+        if (x == array[count]) {
+            numMatches++;
         }
         count++;
     }
-    return numXFound;
+
+    return numMatches;
 }

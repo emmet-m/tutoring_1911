@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int nonDecreasing(double array[], int length);
+int nonDecreasing(double array[], int size);
 
 int main (void) {
     
@@ -13,14 +13,13 @@ int main (void) {
     return 0;
 }
 
-int nonDecreasing(double array[], int length) {
-    
-    int x = 0;
-    while (x < length - 1) {
-        if (array[x] > array[x + 1]) {
+int nonDecreasing(double array[], int size){
+    int counter = 0;
+    while (counter + 1 < size) {
+        if (array[counter + 1] < array[counter]) {
             return 0;
         }
-        x++;
+        counter++;
     }
     return 1;
 }
