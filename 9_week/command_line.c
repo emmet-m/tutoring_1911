@@ -4,10 +4,9 @@
 int main(int argc, char *argv[]) {
     printf("%s\n", argv[argc - 1]);
 
-    if (argc >= 2) {
-        int i = atoi(argv[1]);
-        printf("%d\n", i);
-    }
+    char arr[] = {'1','0','3','\0'};
+    int i = atoi(arr);
+    printf("%d\n", arr);
 
     return 0;
 }
