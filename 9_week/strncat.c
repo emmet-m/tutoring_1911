@@ -15,12 +15,14 @@ void mystrncat(char str1[], char str2[], int n) {
     // Two counters, i for str2, j for str1
     int i = 0;
     int j = strlen(str1);
-    // Start at end of str1
+    // Start at end of str1, start of str2
     while (str2[i] != '\0' && i < n) {
+        // Copy character into str1
         str1[j] = str2[i];
         i++;
         j++;
     }
+    // Place new null delimiter
     str1[j] = '\0';
     return;
 }
