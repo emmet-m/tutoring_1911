@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void swap ( int x, int y );
+void swap ( int * xp, int * yp );
 
 int main(void){
     int x = 10;
@@ -8,17 +8,17 @@ int main(void){
 
     printf("%d %d\n",x,y);
 
-    swap(x,y);
+    swap(&x,&y);
 
     printf("%d %d\n",x,y);
 
 
-    return EXIT_SUCCESS;
+    return 0;
 }
 
-void swap (int x, int y){
+void swap (int * xp, int * yp){
     int tmp;
-    tmp = x;
-    x = y;
-    y = tmp;
+    tmp = *xp;
+    *xp = *yp;
+    *yp = tmp;
 }

@@ -5,7 +5,12 @@ int main (void){
     int    *p, *q;
     p = &n;
     *p =  5;
+    q = NULL;
     *q = 17;
     q =  p;
     *q =  8;
+
+    printf("%d\n", n);
+
+    return 0;
 }
