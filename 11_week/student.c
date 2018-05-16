@@ -31,6 +31,9 @@ int main (void) {
 
     printf("%s was found!\n", culprit->name);
 
+    // This printf prints in red! Try it out (don't use it in your assignments!)
+    //printf("\033[31;1;4m %s was found\n \033[0m", culprit->name);
+
     return EXIT_SUCCESS;
 }
 
