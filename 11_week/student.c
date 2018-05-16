@@ -27,7 +27,7 @@ int main (void) {
 
     Student myClass[] = {e,v,c};
 
-    Student * culprit = findStudent(myClass, 3, 5059840);
+    Student * culprit = findStudent(myClass, 3, 5059841);
 
     printf("%s was found!\n", culprit->name);
 
@@ -35,6 +35,14 @@ int main (void) {
 }
 
 Student * findStudent(Student class[], int size, int zid){
+
+    int i=0;
+    while (i < size) {
+        if (class[i].zid == zid) {
+            return &class[i];
+        }
+        i++;
+    }
 
     return NULL;
 }

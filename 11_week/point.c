@@ -31,5 +31,5 @@ double distS(Point p, Point q) {
 }
 
 int readPoints(Point points[], int maxPoints) {
-
+    return 0;
 }

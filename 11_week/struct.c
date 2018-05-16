@@ -1,22 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct pet {
+typedef struct pet Pet;
+typedef struct date Date;
+
+struct date {
+    int date;
+    int month;
+    int year;
 };
 
-void printPet(/* What argument will this take? */);
+struct pet {
+    char * name;
+    Date dateOfBirth;
+    char * breed;
+};
+
+void printPet(Pet p);
+void printDate(Date d);
 
 int main (void) {
 
-    printPet();
+    Pet borris;
+    borris.name = "Borris";
+    borris.dateOfBirth.date = 31;
+    borris.dateOfBirth.month = 4;
+    borris.dateOfBirth.year = 1996;
+    borris.breed = "dog";
+
+    printPet(borris);
 
     return EXIT_SUCCESS;
 }
 
 
-void printPet(/* What argument will this take? */) {
+void printPet(Pet p) {
 
-    printf("\n");
+    printf("%s is born on ", p.name);
+    printDate(p.dateOfBirth);
+    printf(" and is a %s\n", p.breed);
 
-    return;
+}
+
+void printDate(Date d) {
+
+    printf("%d/%d/%d", d.date, d.month, d.year);
 }
