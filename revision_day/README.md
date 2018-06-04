@@ -8,6 +8,10 @@ Put free() function calls on all variables that need to be free'd (i.e. variable
 
 Every free() call must be made at the latest point it possibly can!
 
+Make sure to compile with:
+
+`dcc --valgrind --leak-check -o free free_all.c`
+
 ### Make Array
 
 Create an array of `size`, and initialise all array values to 0 in the function makeArray.
