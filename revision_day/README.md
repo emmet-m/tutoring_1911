@@ -26,6 +26,8 @@ Create an array of `size`, and initialise all array values to 0 in the function 
 
 Return a pointer to this array.
 
+Don't worry about free()'ing your array!
+
 ## Structs and Pointers questions:
 
 ### Make Struct 
@@ -70,3 +72,6 @@ Given an input string, and a character to remove, remove all instances of that c
 
 Read in up to 100 integers, until no more numbers can be read. Ignore all integers that are divisible by 5. Print the mean, median and mode of the remaining numbers.
 
+You may assume input is in sorted order!
+
+Challenge: Don't assume input is in sorted order.
