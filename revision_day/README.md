@@ -1,5 +1,13 @@
 # Revision day questions!
 
+Hi everyone!
+
+Look in the above folders for some practice lab questions for you to complete. Each question has some incomplete code that requires you to fill in a function or two!
+
+you'll have to do your own testing for most questions, there is no autotest!
+
+Good luck :)
+
 ## Malloc and Free questions:
 
 ### Free All
