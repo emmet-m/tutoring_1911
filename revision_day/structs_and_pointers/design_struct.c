@@ -2,21 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// TODO: Implement these functions.
-// If you want to change the return types/paramaters, you can!
-
-// Reads a student profile in from stdin, returning a new StudentProfile
-// Check studentData.txt for an example of the data format.
-StudentProfile readStudent();
-
-// Prints a student profile back out (in the same format as read in)
-void printStudent(StudentProfile p);
-
-// Deletes a student profile.
-// If you use malloc anywhere in readStudent, you will need to 
-// free it here.
-void destroyStudent(StudentProfile p);
-
 /* A student profile should contain:
  * 1) a name
  * 2) a zid
@@ -37,6 +22,21 @@ typedef struct studentProfile StudentProfile;
 struct studentProfile {
     // TODO: fill this in
 };
+
+// TODO: Implement these functions.
+// If you want to change the return types/paramaters, you can!
+
+// Reads a student profile in from stdin, returning a new StudentProfile
+// Check studentData.txt for an example of the data format.
+StudentProfile readStudent();
+
+// Prints a student profile back out (in the same format as read in)
+void printStudent(StudentProfile p);
+
+// Deletes a student profile.
+// If you use malloc anywhere in readStudent, you will need to 
+// free it here.
+void destroyStudent(StudentProfile p);
 
 int main (void) {
 
