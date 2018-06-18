@@ -36,8 +36,11 @@ int main (void) {
 } 
 
 /*
- * This function takes
+ * This function takes a string 'input' and removes all occurences
+ * of the character 'toRemove' from the string 'input.
  *
+ * e.g.: input = "Hello!", toRemove = 'l'
+ * after removeString: input = "Heo!"
  */
 void removeString (char * input, char toRemove) {
     // TODO: Fill in this function
