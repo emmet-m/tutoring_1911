@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// Make sure to change this prototype too!
-void makeData(int requestedSize);
-
 // TODO: Write a typedef here for the below struct
 struct data {
     int size;
     double * text;
 };
+
+// Make sure to change this prototype too!
+void makeData(int requestedSize);
 
 int main (void) {
 
@@ -38,7 +38,7 @@ void checkStruct(struct * data input) {
     int i = 0;
     for (; i < input->size; i++) {
         if (input->text[i] != 0) {
-            pritnf("Error: struct array not intialised to 0!");
+            printf("Error: struct array not intialised to 0!");
             exit(1);
         }
     }
