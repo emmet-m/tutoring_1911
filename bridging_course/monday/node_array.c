@@ -13,7 +13,6 @@ struct node {
     struct node *next;
 };
 
-struct node * list_append(struct node * list1, struct node *  list2);
 
 int main () {
     int i;

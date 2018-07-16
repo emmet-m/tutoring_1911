@@ -35,8 +35,7 @@ int main (void) {
 
     // is_empty
     assert(is_empty(n));
-    // TODO: Come back to this...
-    //assert(length(n) == 0);
+    assert(length(n) == 0);
 
     // insert, create_node
     n = insert(1,n);
@@ -68,7 +67,7 @@ int main (void) {
     assert(last(n)->data == 1);
     assert(first(n)->data == 3);
 
-    // append
+    // ppend
     n = append(0,n);
     assert(length(n) == 4);
     assert(first(n)->data == 3);
@@ -80,6 +79,10 @@ int main (void) {
 
     assert(length(n) == 4);
 
+
+    // TODO: write some tests for list_append!!!
+
+
     return EXIT_SUCCESS;
 }
 
@@ -87,6 +90,10 @@ int main (void) {
  * return 1 iff list contains no elements, 0 otherwise
  */
 int is_empty(struct node * list) {
+    if (list == NULL) {
+        return TRUE;
+    }
+
     return FALSE;
 }
 
@@ -94,23 +101,42 @@ int is_empty(struct node * list) {
  * create a struct node and place the specified values in the fields
  */
 struct node * create_node(int data, struct node * next) {
-    return NULL;
+    struct node * newNode;
 
+    newNode = malloc(sizeof(struct node));
+
+    if (newNode == NULL) {
+        fprintf(stderr, "Malloc failed when creating new node!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    newNode->data = data;
+    newNode->next = next;
+
+    return newNode;
 }
 
 /*
  * insert integer at front of list
  */
 struct node * insert(int value, struct node * list) {
-    return NULL;
-
+    return create_node(value, list);
 }
 
 /*
  * return number of nodes in list
  */
 int length(struct node * list) {
-    return -1;
+    int i = 0;
+
+    struct node * n = list;
+
+    while (n != NULL) {
+        n = n->next;
+        ++i;
+    }
+
+    return i;
 }
 
 /*
@@ -118,8 +144,7 @@ int length(struct node * list) {
  * NULL is returned if list is empty
  */
 struct node *first(struct node * list) {
-    return NULL;
-
+    return list;
 }
 
 /*
@@ -127,21 +152,45 @@ struct node *first(struct node * list) {
  * NULL is returned if list is empty
  */
 struct node *last(struct node * list) {
-    return NULL;
+    if (is_empty(list)) {
+        return NULL;
+    }
+
+    struct node * last = list;
+
+    while (last->next != NULL) {
+        last = last->next;
+    }
+
+    return last;
 }
 
 /*
  * append integer to end of list
  */
 struct node * append(int value, struct node * list) {
-    return NULL;
+    last(list)->next = create_node(value, NULL);
+
+    return list;
 }
 
 /*
  * print contents of list
  * e.g: [11, 12, 13, 42, 24]
  */
-void print_list(struct node * list) {}
+void print_list(struct node * list) {
+    struct node * n = list;
+
+    while (n != NULL) {
+        printf("%d", n->data);
+        if (n->next != NULL) {
+            printf("->");
+        }
+        n = n->next;
+    }
+
+    printf("\n");
+}
 
 
 /*
@@ -154,5 +203,6 @@ void print_list(struct node * list) {}
  *  list_append(list1, list2) == 1->2->3->4->5->6
  */
 struct node * list_append(struct node * list1, struct node *  list2) {
-    return NULL;
+    last(list1)->next = list2;
+    return list1;
 }
