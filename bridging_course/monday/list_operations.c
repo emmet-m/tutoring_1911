@@ -141,5 +141,18 @@ struct node * append(int value, struct node * list) {
  * print contents of list
  * e.g: [11, 12, 13, 42, 24]
  */
-void print_list(struct node * list) {
+void print_list(struct node * list) {}
+
+
+/*
+ * combines two lists together, sticking list2 on the end of list1
+ * 
+ * e.g:
+ *  list1 == 1->2->3
+ *  list2 == 4->5->6
+ *
+ *  list_append(list1, list2) == 1->2->3->4->5->6
+ */
+struct node * list_append(struct node * list1, struct node *  list2) {
+    return NULL;
 }
