@@ -9,20 +9,29 @@
 #include <assert.h>
 
 unsigned long long fibi(int num);
+unsigned long long fibr(int num);
 
 int main (void) {
     int i;
+    printf("Fibonacci number to print: ");
     scanf("%d", &i);
 
-    printf("%lld", fibi(i));
+    printf("%lld\n", fibi(i));
 
     return EXIT_SUCCESS;
+}
+
+unsigned long long fibr(int num) {
+    if (num == 0) return 0;
+    if (num == 1) return 1;
+
+    return fibr(num-2) + fibr(num-1);
 }
 
 unsigned long long fibi(int num) {
     // Valid argument check
     assert(num >= 0);
-    
+
     if (num == 0) return 0;
     if (num == 1) return 1;
 
@@ -38,8 +47,4 @@ unsigned long long fibi(int num) {
     }
 
     return count;
-}
-
-unsigned long long fibr(int num) {
-
 }

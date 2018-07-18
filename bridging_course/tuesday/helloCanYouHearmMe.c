@@ -12,10 +12,10 @@ int main (void) {
     return EXIT_SUCCESS;
 }
 
-void iterative(int amount) {
-    return NULL;
-}
 
 void recursive(int amount) {
-    return NULL;
+    if (amount <= 0) return;
+
+    printf("HI\n");
+    recursive(amount-1);
 }
