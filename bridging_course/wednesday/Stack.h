@@ -10,7 +10,7 @@
 
 typedef struct stack *Stack;
 
-Stack create(void);                   // create a new stack
+Stack createStack(void);                   // create a new stack
 void destroy(Stack stack);            // free a stack
 void push(Stack stack, int item);     // add new item to stack
 int pop(Stack stack);                 // remove top item from stack and return it

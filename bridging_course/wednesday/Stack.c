@@ -17,7 +17,7 @@ struct stack {
     // XXX
 };
 
-Stack create(void) {
+Stack createStack(void) {
 
 }
                
