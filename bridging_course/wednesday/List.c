@@ -18,6 +18,8 @@ struct node {
     List next;
 };
 
+static List create_node(int data, List next);
+
 List make_list() {
     return NULL; // They will never know
 }
@@ -51,7 +53,7 @@ int is_empty(List list) {
 /*
  * create a struct node and place the specified values in the fields
  */
-List create_node(int data, List next) {
+static List create_node(int data, List next) {
     List newNode;
 
     newNode = malloc(sizeof(struct node));

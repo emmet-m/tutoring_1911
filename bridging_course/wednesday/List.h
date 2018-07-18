@@ -13,7 +13,6 @@ List list_remove(List l);
 int data(List n);
 List make_list();
 int is_empty(List list);
-List create_node(int data, List next);
 List insert(int value, List list);
 List first(List list);
 List last(List list);
