@@ -34,11 +34,77 @@ int * listToArray(struct node * head, int size);
 struct node *strings_to_list(int len, char *strings[]);
 struct node * merge_sortedLists(struct node * head1, struct node * head2);
 
+int data(struct node * l) {
+    if (l == NULL) {
+        fprintf(stderr, "Error, null list passed to data!");
+        exit(1);
+    }
+    return l->data;
+}
+
+struct node * delete_first(struct node * head) {
+    if (head == NULL) {
+        return NULL;
+    }
+
+    struct node * tmp = head->next;
+    free(head);
+    
+    return tmp;
+}
+
 
 int main (void) {
 
     // TODO: Write some tests...
     
+    char *powers[] = {"2", "4", "8", "16"};
+    struct node *head = strings_to_list(4, powers);
+
+    assert(data(find_min(head)) == data(head));
+
+    assert(length(head) == 4);
+    assert(data(head) == 2);
+    head = delete_first(head);
+
+    assert(data(find_min(head)) == data(head));
+
+    assert(data(head) == 4);
+    head = delete_first(head);
+
+    assert(data(find_min(head)) == data(head));
+
+    assert(data(head) == 8);
+    head = delete_first(head);
+
+    assert(data(find_min(head)) == data(head));
+    
+    assert(data(head) == 16);
+    head = delete_first(head);
+
+    assert(is_empty(head));
+    assert(find_min(head) == NULL);
+
+    // Merge tests
+
+    char *nums[] = {"1", "4", "7"};
+    char *nums2[] = {"2", "6", "8"};
+    struct node *list1 = strings_to_list(3, nums);
+    struct node *list2 = strings_to_list(3, nums2);
+   
+    int prevLength = length(list1) + length(list2);
+
+    struct node* result = merge_sortedLists(list1,list2); 
+
+    assert(data(result) == 1);
+    assert(length(result) == prevLength);
+
+    while (result != NULL) {
+        assert(data(result) == data(find_min(result)));
+        result = delete_first(result);
+    }
+
+
     return 0;
 }
 
@@ -125,7 +191,14 @@ struct node *last(struct node * list) {
  * append integer to end of list
  */
 struct node * append(int value, struct node * list) {
-    last(list)->next = create_node(value, NULL);
+    struct node * n = create_node(value, NULL);
+
+    if (list == NULL) {
+        return n;
+    }
+
+    last(list)->next = n;
+        
 
     return list;
 }
@@ -164,8 +237,16 @@ struct node * list_append(struct node * list1, struct node *  list2) {
 }
 
 struct node * find_min(struct node * list) {
-    // TODO
-    return NULL;
+    struct node * curr = list;
+    struct node * min = list;
+    while (curr != NULL) {
+        if (curr->data < min->data) {
+            min = curr;
+        }
+        curr = curr->next;
+    }
+
+    return min;
 }
 
 int * listToArray(struct node * head, int size) {
@@ -173,9 +254,54 @@ int * listToArray(struct node * head, int size) {
 }
 
 struct node *strings_to_list(int len, char *strings[]) {
-    return NULL;
+    if (len <= 0) {
+        return NULL;
+    }
+
+    struct node * list = NULL;
+
+    int i = 0;
+    while (i < len) {
+        int tmp = atoi(strings[i]);
+        list = append(tmp, list);
+        i++;
+    }
+
+    return list;
 }
 
 struct node * merge_sortedLists(struct node * head1, struct node * head2) {
-    return NULL;
+    struct node * result = NULL;
+
+    while (head1 != NULL && head2 != NULL) {
+        if (head1->data < head2->data) {
+            result = append(head1->data, result);
+            head1 = head1->next;
+        } else {
+            result = append(head2->data, result);
+            head2 = head2->next;
+        }
+    }
+
+    while (head2!=NULL) {
+        result = append(head2->data, result);
+        head2 = head2->next;
+    }
+    while (head1!=NULL) {
+        result = append(head1->data, result);
+        head1 = head1->next;
+    }
+
+    return result;
 }
+
+
+
+
+
+
+
+
+
+
+
